@@ -37,7 +37,12 @@
             color: var(--text-primary);
             min-height: 100vh;
             overflow-x: hidden;
-            background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, var(--bg-main) 60%);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(30, 41, 59, 0.8) 0%, var(--bg-main) 60%),
+                url('https://images.unsplash.com/photo-1514828629584-c5a5265e3b50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTQzNzZ8MHwxfHNlYXJjaHw4fHxtb2Rlcm4lMjBsYXVuZHJ5fGVufDB8fHx8MTcwMTkxNjkwNnww&lib.rb-4.0.3&q=80&w=1080'); /* Gambar galaksi */
+            background-size: cover, cover; 
+            background-blend-mode: overlay; 
+            background-position: center top; 
             position: relative; 
         }
 
@@ -51,11 +56,12 @@
             height: 100vh;
             z-index: -1; 
             pointer-events: none; 
-            background-image: radial-gradient(1px 1px, rgba(148, 163, 184, 0.15) 1px, transparent 0),
-                              radial-gradient(2px 2px, rgba(148, 163, 184, 0.1) 2px, transparent 0);
-            background-size: 150px 150px, 300px 300px;
+            background-image: 
+                radial-gradient(1.5px 1.5px, rgba(255, 255, 255, 0.25) 1.5px, transparent 0), 
+                radial-gradient(2.5px 2.5px, rgba(255, 255, 255, 0.2) 2.5px, transparent 0); 
+            background-size: 100px 100px, 200px 200px; 
             background-position: 0 0, 50px 50px;
-            animation: moveDust 90s linear infinite;
+            animation: moveDust 60s linear infinite; 
         }
 
         @keyframes moveDust {
@@ -83,10 +89,13 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
+        /* ### PERUBAHAN NO 4 ### */
         .logo {
             font-size: 1.5rem;
             font-weight: 800;
             letter-spacing: 0.5px;
+            display: flex; /* Ditambahkan */
+            align-items: center; /* Ditambahkan */
         }
 
         .highlight-blue {
@@ -108,6 +117,688 @@
             max-width: 800px;
             padding: 0 20px;
             text-align: center;
+        }
+
+        /* --- Section Styling --- */
+        .info-section, .hero-section {
+            width: 100%;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        /* --- Animasi Scroll Fade-in --- */
+        .js-scroll-fade-in {
+            opacity: 0;
+            transform: translateY(20px); 
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .js-scroll-fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0); 
+        }
+        /* --- AKHIR CSS ANIMASI --- */
+
+        h1.main-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #ffffff, #bfdbfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        h2.section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        p.section-desc {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto 30px auto;
+            line-height: 1.5;
+        }
+        
+        /* --- Style untuk List Syarat --- */
+        .syarat-list {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 1.6;
+            text-align: left; /* Ubah jadi rata kiri */
+            list-style-position: inside; /* Pindahkan bullet ke dalam */
+            padding-left: 10px; /* Sedikit padding */
+        }
+        .syarat-list li {
+            margin-bottom: 5px;
+        }
+        /* --- Akhir Style List Syarat --- */
+        
+        /* --- Glow Effect --- */
+        .glow-effect {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: var(--accent-blue);
+            filter: blur(160px);
+            opacity: 0.15;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* --- Feature Grids --- */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 60px;
+            text-align: left;
+        }
+        .feature-item {
+            background: var(--card-bg);
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            color: #e2e8f0;
+            transition: transform 0.2s ease;
+        }
+        .feature-item:hover { transform: translateY(-3px); border-color: var(--accent-blue); }
+        .check-icon { 
+            color: var(--accent-blue); 
+            font-size: 1.4rem; /* Sedikit dibesarkan agar seimbang */
+            font-weight: 600; 
+        }
+
+        .security-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .security-item {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 12px 15px;
+            border-radius: 8px;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .shield-icon { 
+            color: var(--accent-blue); 
+            font-size: 1.4rem; /* Samakan ukuran */
+            font-weight: 600;
+        }
+
+        /* --- Promo Box (Member Get Member) --- */
+        .promo-box {
+            background-color: var(--card-bg);
+            border: 2px solid var(--accent-blue);
+            border-radius: 12px;
+            padding: 20px 25px;
+            color: var(--text-primary);
+            font-weight: 600;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            box-shadow: 0 0 25px var(--glow-blue);
+            max-width: 650px;
+            margin: 30px auto 0 auto;
+            text-align: center;
+        }
+        .promo-box strong { color: var(--accent-blue); font-weight: 800; }
+
+        /* --- CSS Payment Grid --- */
+        .payment-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 15px;
+            margin-top: 40px; 
+        }
+
+        .payment-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            border-radius: 12px;
+            padding: 15px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .payment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px var(--glow-blue);
+            border-color: var(--accent-blue);
+        }
+
+        .payment-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .payment-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-align: center; 
+        }
+        /* --- AKHIR CSS PAYMENT GRID --- */
+
+        
+        /* --- CSS MOCKUP LINKEDIN --- */
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 kolom di desktop */
+            gap: 20px;
+            text-align: left;
+        }
+
+        .mockup-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            border-radius: 12px;
+            overflow: hidden; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .mockup-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px var(--glow-blue);
+            border-color: var(--accent-blue);
+        }
+
+        /* Card 1: Profil */
+        .mockup-profile-banner {
+            height: 80px;
+            background: linear-gradient(45deg, var(--accent-blue), #1e293b);
+        }
+        .mockup-profile-pic {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 4px solid var(--card-bg);
+            margin-top: -35px; 
+            margin-left: 20px;
+            background-color: var(--input-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .mockup-profile-pic .material-symbols-outlined {
+            font-size: 2.5rem;
+            color: var(--text-secondary);
+        }
+        .mockup-profile-info {
+            padding: 10px 20px 20px 20px;
+        }
+        .mockup-profile-info h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+        .mockup-profile-info p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+        .mockup-profile-info .location {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+        .mockup-profile-info .location .material-symbols-outlined {
+            font-size: 1rem; 
+        }
+
+        /* Card 2: Postingan */
+        .mockup-post-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+        }
+        .mockup-post-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--input-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .mockup-post-pic .material-symbols-outlined {
+            color: var(--text-secondary);
+        }
+        .mockup-post-author h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .mockup-post-author span {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        .mockup-post-content {
+            padding: 0 15px 15px 15px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .mockup-post-social {
+            display: flex;
+            justify-content: space-around;
+            border-top: 1px solid var(--input-bg);
+            padding: 15px 10px;
+        }
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .social-btn .material-symbols-outlined {
+            font-size: 1.2rem;
+        }
+
+        /* Responsive untuk Mockup */
+        @media (max-width: 650px) {
+            .mockup-grid {
+                grid-template-columns: 1fr; /* 1 kolom di HP */
+            }
+        }
+        /* --- AKHIR CSS MOCKUP LINKEDIN --- */
+
+
+        /* --- CSS Efek Shimmer (KILAU IKUT TEKS) --- */
+        .shimmer-text {
+            color: var(--text-primary); 
+            font-weight: 800;
+            position: relative;
+            display: inline-block; 
+            z-index: 1; 
+            
+            background: linear-gradient(
+                90deg, 
+                var(--text-primary) 0%, 
+                var(--accent-blue) 20%, 
+                var(--text-primary) 40%, 
+                var(--text-primary) 100%
+            );
+            background-size: 200% 100%; 
+            
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            animation: shimmer-text-effect 3s linear infinite;
+        }
+        
+        .promo-box strong.shimmer-text {
+            color: var(--accent-blue); 
+            font-weight: 800;
+            background: linear-gradient(
+                90deg, 
+                var(--accent-blue) 0%, 
+                var(--text-primary) 20%, 
+                var(--accent-blue) 40%, 
+                var(--accent-blue) 100%
+            );
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer-text-effect 3s linear infinite;
+        }
+
+        @keyframes shimmer-text-effect {
+            0% {
+                background-position: -200% 0; 
+            }
+            100% {
+                background-position: 200% 0; 
+            }
+        }
+        /* --- AKHIR CSS SHIMMER --- */
+        
+        
+        /* ### CSS Testimoni Grid ### */
+        .testimoni-grid {
+            width: 100%;
+            display: grid;
+            /* Grid responsif: 1-3 kolom */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .testimoni-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            border-radius: 12px;
+            overflow: hidden; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .testimoni-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px var(--glow-blue);
+            border-color: var(--accent-blue);
+        }
+
+        .testimoni-card img {
+            display: block; 
+            width: 100%;    
+            height: auto;   
+        }
+        /* ### AKHIR CSS TESTIMONI ### */
+        
+        /* ### CSS BARU NO 5: FOOTER ### */
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 25px 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 30px;
+        }
+        /* ### AKHIR CSS FOOTER ### */
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; }
+            h1.main-title { font-size: 2.5rem; }
+            p.subtitle { font-size: 1rem; }
+            h2.section-title { font-size: 1.6rem; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .promo-box { font-size: 1rem; }
+            .form-toggle-container { flex-direction: column; gap: 15px; }
+            .mockup-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <span class="material-symbols-outlined" style="font-size: 1.8rem; margin-right: 8px; font-weight: 500; color: var(--accent-blue);">
+                hub
+            </span>
+            Linkedin <span class="highlight-blue">Zen</span>
+        </div>
+        </header>
+
+    <main>
+        <div class="container">
+            
+            <section class="hero-section">
+                <div class="glow-effect"></div>
+
+                <h1 class="main-title">Passive Income<br>Weekly</h1>
+                <p class="subtitle">
+                    Sewakan akunmu di agent Zen dan Peroleh Passive Income <span class="shimmer-text">$10 Weekly</span>
+                </p>
+
+                <h2 class="section-title js-scroll-fade-in" style="font-size: 1.8rem; margin-bottom: 15px; margin-top: 40px;">
+                    Apa syarat nya?
+                </h2>
+                <ul class="syarat-list js-scroll-fade-in" style="margin-bottom: 30px;">
+                    <li>1. Pembuatan minimal mei 2024</li>
+                    <li>2. Koneksi Minimal 20</li>
+                </ul>
+                
+                <h2 class="section-title js-scroll-fade-in" style="font-size: 1.8rem; margin-bottom: 15px;">
+                    Kapan Mulai Sewa?
+                </h2>
+                <p class="section-desc js-scroll-fade-in" style="font-size: 1.1rem; margin-bottom: 30px; max-width: 550px;">
+                    Jadwal sewa dimulai setiap Kamis Sd Selasa Jam 8 malam sampai Jam 5 Pagi.
+                </p>
+
+                <h2 class="section-title js-scroll-fade-in" style="font-size: 1.8rem; margin-bottom: 15px;">
+                    Kapan Dibayarnya?
+                </h2>
+                <p class="section-desc js-scroll-fade-in" style="font-size: 1.1rem; margin-bottom: 0; max-width: 550px;">
+                    Kamu akan mendapatkan bayaran setiap Kamis ( Jika tidak delay dari perusahaan )
+                </p>
+                
+                <div class="feature-grid js-scroll-fade-in" style="margin-top: 40px;"> 
+                    <div class="feature-item">
+                        <span class="material-symbols-outlined check-icon">done</span> 100% Dibayar sesuai rules
+                    </div>
+                    <div class="feature-item">
+                        <span class="material-symbols-outlined check-icon">wallet</span> Bisa semua jenis Bank & E-Wallet
+                    </div>
+                    <div class="feature-item">
+                        <span class="material-symbols-outlined check-icon">paid</span> DP $1 Setelah Agent Log in
+                    </div>
+                    <div class="feature-item">
+                        <span class="material-symbols-outlined check-icon">support_agent</span> Admin Responsif
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section js-scroll-fade-in"> 
+                <h2 class="section-title">Buat apa akunya?</h2>
+                <p class="section-desc">
+                    Akun digunakan untuk Promosi Produk digital dan Menaikan Engagement Di Negara Agent
+                </p>
+                
+                <div class="security-list">
+                    <div class="security-item">
+                        <span class="material-symbols-outlined shield-icon">security</span> Akun aman Tidak Take data utama
+                    </div>
+                    <div class="security-item">
+                        <span class="material-symbols-outlined shield-icon">public</span> Akun disesuaikan Profilnya ke negara Agent
+                    </div>
+                    <div class="security-item">
+                        <span class="material-symbols-outlined shield-icon">lock</span> Akun tidak akan digunakan untuk tindak kriminal
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-section js-scroll-fade-in">
+                <h2 class="section-title">Contoh Penggunaan Akun</h2>
+                
+                <div class="mockup-grid">
+                    
+                    <div class="mockup-card">
+                        <div class="mockup-profile-banner"></div>
+                        <div class="mockup-profile-pic">
+                            <span class="material-symbols-outlined">person</span>
+                        </div>
+                        <div class="mockup-profile-info">
+                            <h3>Alex Jordan</h3>
+                            <p>Digital Health Advocate | Promoting Wellness Tech</p>
+                            <div class="location">
+                                <span class="material-symbols-outlined">location_on</span>
+                                Berlin, Germany
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mockup-card">
+                        <div class="mockup-post-header">
+                            <div class="mockup-post-pic">
+                                <span class="material-symbols-outlined">person</span>
+                            </div>
+                            <div class="mockup-post-author">
+                                <h4>Alex Jordan</h4>
+                                <span>Promoted</span>
+                            </div>
+                        </div>
+                        <div class="mockup-post-content">
+                            <p>Excited to share this new digital wellness app! It's changing how we track our health. #DigitalHealth #Wellness #Tech</p>
+                        </div>
+                        <div class="mockup-post-social">
+                            <span class="social-btn">
+                                <span class="material-symbols-outlined">thumb_up</span> Like
+                            </span>
+                            <span class="social-btn">
+                                <span class="material-symbols-outlined">chat_bubble</span> Comment
+                            </span>
+                            <span class="social-btn">
+                                <span class="material-symbols-outlined">repeat</span> Repost
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="info-section js-scroll-fade-in"> 
+                <h2 class="section-title">Member Get Member</h2>
+                <div class="promo-box">
+                    Undang Teman untuk menyewakan akun linkedinya kesini, per undangan yang berhasil sewa maka kamu akan mendapat <strong class="shimmer-text">$2</strong> terlepas akun temanmu Restric Atau Tidak nya
+                </div>
+            </section>
+
+            <section class="info-section js-scroll-fade-in">
+                <h2 class="section-title">Testimoni</h2>
+                <div class="testimoni-grid">
+                    <div class="testimoni-card">
+                        <img src="Testimoni 1.png" alt="Bukti pembayaran testimoni 1" loading="lazy">
+                    </div>
+                    <div class="testimoni-card">
+                        <img src="Testimoni 2.png" alt="Bukti pembayaran testimoni 2" loading="lazy">
+                    </div>
+                    <div class="testimoni-card">
+                        <img src="Testimoni 3.png" alt="Bukti pembayaran testimoni 3" loading="lazy">
+                    </div>
+                    <div class="testimoni-card">
+                        <img src="Testimoni 4.png" alt="Bukti pembayaran testimoni 4" loading="lazy">
+                    </div>
+                    <div class="testimoni-card">
+                        <img src="Testimoni 5.png" alt="Bukti pembayaran testimoni 5" loading="lazy">
+                    </div>
+                </div>
+            </section>
+            
+            <section class="info-section js-scroll-fade-in"> 
+                <h2 class="section-title">Metode Pembayaran</h2>
+                <div class="payment-grid">
+                    <div class="payment-card" aria-label="Metode Pembayaran DANA">
+                        <div class="payment-icon" style="background-color: #3b82f6;">D</div>
+                        <span class="payment-name">Dana</span>
+                    </div>
+                    <div class="payment-card" aria-label="Metode Pembayaran OVO">
+                        <div class="payment-icon" style="background-color: #6d28d9;">O</div>
+                        <span class="payment-name">Ovo</span>
+                    </div>
+                    <div class="payment-card" aria-label="Metode Pembayaran Gopay">
+                        <div class="payment-icon" style="background-color: #22c55e;">G</div>
+                        <span class="payment-name">Gopay</span>
+                    </div>
+                    <div class="payment-card" aria-label="Metode Pembayaran ShopeePay">
+                        <div class="payment-icon" style="background-color: #f97316;">S</div>
+                        <span class="payment-name">ShopeePay</span>
+                    </div>
+                    <div class="payment-card" aria-label="Metode Pembayaran Seabank">
+                        <div class="payment-icon" style="background-color: #f59e0b;">S</div>
+                        <span class="payment-name">Seabank</span>
+                    </div>
+                    <div class="payment-card" aria-label="Metode Pembayaran BRI">
+                        <div class="payment-icon" style="background-color: #2563eb;">B</div>
+                        <span class="payment-name">BRI</span>
+                    </div>
+                    <div class="payment-card" aria-label="Metode Pembayaran Mandiri">
+                        <div class="payment-icon" style="background-color: #eab308;">M</div>
+                        <span class="payment-name">Mandiri</span>
+                    </div>
+                    <div class="payment-card" aria-label="Metode Pembayaran BCA Blu">
+                        <div class="payment-icon" style="background-color: #0ea5e9;">B</div>
+                        <span class="payment-name">BCA Blu</span>
+                    </div>
+                    <div class="payment-card" aria-label="Metode Pembayaran Jago">
+                        <div class="payment-icon" style="background-color: #facc15; color: #1e293b;">J</div>
+                        <span class="payment-name">Jago</span>
+                    </div>
+                    <div class="payment-card" aria-label="Metode Pembayaran BNI">
+                        <div class="payment-icon" style="background-color: #f59e0b;">B</div>
+                        <span class="payment-name">BNI</span>
+                    </div>
+                    <div class="payment-card" aria-label="Metode Pembayaran Permata">
+                        <div class="payment-icon" style="background-color: #ef4444;">P</div>
+                        <span class="payment-name">Permata</span>
+                    </div>
+                    <div class="payment-card" aria-label="Metode Pembayaran TMRW">
+                        <div class="payment-icon" style="background-color: #fde047; color: #1e293b;">T</div>
+                        <span class="payment-name">TMRW</span>
+                    </div>
+                </div>
+            </section>
+            
+            </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Linkedin Zen. All Rights Reserved.</p>
+    </footer>
+    <script>
+        // 1. Logika Animasi Scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const sectionsToAnimate = document.querySelectorAll('.js-scroll-fade-in');
+
+            if (sectionsToAnimate.length > 0) {
+                const observerOptions = {
+                    root: null, // default: viewport
+                    rootMargin: '0px',
+                    threshold: 0.1 // 10% dari elemen harus terlihat
+                };
+
+                const observerCallback = (entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                };
+
+                const observer = new IntersectionObserver(observerCallback, observerOptions);
+                sectionsToAnimate.forEach(section => {
+                    observer.observe(section);
+                });
+            }
+        });
+        
+    </script>
+</body>
+</html>            text-align: center;
         }
 
         /* --- Section Styling --- */
