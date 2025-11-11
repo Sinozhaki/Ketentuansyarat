@@ -3,799 +3,813 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linkedin Zen - Passive Income</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
+    <title>Passive Income Weekly - Agent Zen</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
     <style>
-        /* --- CSS Reset & Global Styles --- */
+        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap');
+
+        /* --- Variabel Warna --- */
+        :root {
+            --linkedin-blue: #0A66C2; /* Biru LinkedIn */
+            --linkedin-blue-light: #378CDA; /* Biru LinkedIn lebih terang */
+            --aurora-purple: #4a00e0; /* Warna ungu untuk aurora */
+            --galaxy-black: #0c0c1a; /* Hitam kebiruan tua */
+            --text-light: #f0f0f8;   /* Teks putih pudar */
+            --text-dark: #333333; /* Teks gelap untuk mockup */
+            --text-secondary: #a0a0b0; /* Teks abu-abu */
+            --border-color: rgba(10, 102, 194, 0.3); /* Biru transparan untuk border */
+            --mockup-bg-light: #ffffff; /* Latar belakang putih untuk mockup */
+            --mockup-text-secondary: #666666; /* Abu-abu sekunder untuk mockup */
+            --warning-bg: rgba(255, 193, 7, 0.1); /* Latar kuning transparan */
+            --warning-border: #FFC107; /* Border kuning */
+            --info-bg: rgba(10, 102, 194, 0.1); /* Latar biru transparan */
+            --info-border: var(--linkedin-blue); /* Border biru */
+            --card-bg: #1a1a2e; /* Latar belakang kartu gelap */
+        }
+
+        /* --- Pengaturan Dasar --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --bg-main: #050a14;
-            --text-primary: #ffffff;
-            --text-secondary: #94a3b8;
-            --accent-blue: #3b82f6;
-            --glow-blue: rgba(59, 130, 246, 0.5);
-            --card-bg: rgba(30, 41, 59, 0.5);
-            --input-bg: #1e293b;
-            /* Tambahan warna untuk status card */
-            --accent-green: #22c55e;
-            --accent-yellow: #eab308;
-        }
-
+        /* === Latar Belakang === */
         body {
-            font-family: 'Nunito', sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-primary);
-            min-height: 100vh;
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 50% 0%, rgba(30, 41, 59, 0.8) 0%, var(--bg-main) 60%),
-                url('https://images.unsplash.com/photo-1514828629584-c5a5265e3b50?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTQzNzZ8MHwxfHNlYXJjaHw4fHxtb2Rlcm4lMjBsYXVuZHJ5fGVufDB8fHx8MTcwMTkxNjkwNnww&lib.rb-4.0.3&q=80&w=1080'); /* Gambar galaksi */
-            background-size: cover, cover; 
-            background-blend-mode: overlay; 
-            background-position: center top; 
-            position: relative; 
+            font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden; 
+            background-color: var(--galaxy-black);
+            position: relative;
         }
 
-        /* --- Animasi Debu Berterbangan --- */
+        /* === Animasi Grid === */
         body::before {
-            content: '';
-            position: fixed; 
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+            background-image: 
+                linear-gradient(rgba(10, 102, 194, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(10, 102, 194, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveGrid 20s linear infinite;
+        }
+
+        @keyframes moveGrid {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+
+        /* === Animasi Aurora === */
+        .aurora {
+            position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1; 
-            pointer-events: none; 
-            background-image: 
-                radial-gradient(1.5px 1.5px, rgba(255, 255, 255, 0.25) 1.5px, transparent 0), 
-                radial-gradient(2.5px 2.5px, rgba(255, 255, 255, 0.2) 2.5px, transparent 0); 
-            background-size: 100px 100px, 200px 200px; 
-            background-position: 0 0, 50px 50px;
-            animation: moveDust 60s linear infinite; 
-        }
-
-        @keyframes moveDust {
-            from { background-position: 0 0, 50px 50px; }
-            to { background-position: -1000px 1000px, -500px 500px; }
-        }
-        /* --- AKHIR CSS DEBU --- */
-
-
-        .material-symbols-outlined {
-          font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24
-        }
-
-        /* --- Header --- */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 10;
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* ### PERUBAHAN NO 4 ### */
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            display: flex; /* Ditambahkan */
-            align-items: center; /* Ditambahkan */
-        }
-
-        .highlight-blue {
-            color: var(--accent-blue);
-            text-shadow: 0 0 15px var(--glow-blue);
-        }
-
-        /* --- Main Container --- */
-        main {
-            padding-top: 120px;
-            padding-bottom: 60px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 800px;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        /* --- Section Styling --- */
-        .info-section, .hero-section {
-            width: 100%;
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        /* --- Animasi Scroll Fade-in --- */
-        .js-scroll-fade-in {
-            opacity: 0;
-            transform: translateY(20px); 
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .js-scroll-fade-in.is-visible {
-            opacity: 1;
-            transform: translateY(0); 
-        }
-        /* --- AKHIR CSS ANIMASI --- */
-
-        h1.main-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 15px;
-            background: linear-gradient(to right, #ffffff, #bfdbfe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        h2.section-title {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: var(--text-primary);
-        }
-
-        p.subtitle {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            font-weight: 600;
-            max-width: 600px;
-            margin: 0 auto 30px auto;
-        }
-
-        p.section-desc {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 650px;
-            margin: 0 auto 30px auto;
-            line-height: 1.5;
-        }
-        
-        /* --- Style untuk List Syarat --- */
-        .syarat-list {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 550px;
-            margin: 0 auto;
-            line-height: 1.6;
-            text-align: left; /* Ubah jadi rata kiri */
-            list-style-position: inside; /* Pindahkan bullet ke dalam */
-            padding-left: 10px; /* Sedikit padding */
-        }
-        .syarat-list li {
-            margin-bottom: 5px;
-        }
-        /* --- Akhir Style List Syarat --- */
-        
-        /* --- Glow Effect --- */
-        .glow-effect {
-            position: absolute;
-            width: 250px;
-            height: 250px;
-            background: var(--accent-blue);
-            filter: blur(160px);
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            filter: blur(150px);
             opacity: 0.15;
-            z-index: -1;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            z-index: -2;
+            will-change: transform;
+        }
+        #aurora-1 {
+            background-color: var(--linkedin-blue);
+            animation: moveAurora1 60s alternate infinite ease-in-out;
+        }
+        #aurora-2 {
+            background-color: var(--aurora-purple);
+            animation: moveAurora2 70s alternate infinite ease-in-out;
         }
 
-        /* --- Feature Grids --- */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-bottom: 60px;
-            text-align: left;
+        @keyframes moveAurora1 {
+            0% { transform: translate(-20%, -20%) scale(1); }
+            100% { transform: translate(50%, 70%) scale(1.5); }
         }
-        .feature-item {
-            background: var(--card-bg);
-            padding: 15px 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(59, 130, 246, 0.1);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-            color: #e2e8f0;
-            transition: transform 0.2s ease;
-        }
-        .feature-item:hover { transform: translateY(-3px); border-color: var(--accent-blue); }
-        .check-icon { 
-            color: var(--accent-blue); 
-            font-size: 1.4rem; /* Sedikit dibesarkan agar seimbang */
-            font-weight: 600; 
+        @keyframes moveAurora2 {
+            0% { transform: translate(40%, 60%) scale(1.2); }
+            100% { transform: translate(-30%, -40%) scale(0.8); }
         }
 
-        .security-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-width: 600px;
+        /* --- Header & Logo "Zen" --- */
+        header {
+            position: relative;
+            height: 70px;
+            width: 100%;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 0 0 8px #fff,
+                         0 0 16px var(--linkedin-blue),
+                         0 0 24px var(--linkedin-blue);
+        }
+
+        /* --- Konten Utama --- */
+        .container {
+            max-width: 800px;
             margin: 0 auto;
-            text-align: left;
-        }
-        .security-item {
-            background: rgba(15, 23, 42, 0.6);
-            padding: 12px 15px;
-            border-radius: 8px;
-            color: #cbd5e1;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .shield-icon { 
-            color: var(--accent-blue); 
-            font-size: 1.4rem; /* Samakan ukuran */
-            font-weight: 600;
-        }
-
-        /* --- Promo Box (Member Get Member) --- */
-        .promo-box {
-            background-color: var(--card-bg);
-            border: 2px solid var(--accent-blue);
-            border-radius: 12px;
-            padding: 20px 25px;
-            color: var(--text-primary);
-            font-weight: 600;
-            line-height: 1.6;
-            font-size: 1.1rem;
-            box-shadow: 0 0 25px var(--glow-blue);
-            max-width: 650px;
-            margin: 30px auto 0 auto;
+            padding: 0 20px 50px 20px;
             text-align: center;
         }
-        .promo-box strong { color: var(--accent-blue); font-weight: 800; }
 
-        /* --- CSS Payment Grid --- */
-        .payment-grid {
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-            gap: 15px;
-            margin-top: 40px; 
+        /* --- Bagian Hero (Judul Utama) --- */
+        .hero {
+            padding-top: 50px;
+            padding-bottom: 60px;
         }
 
-        .payment-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(59, 130, 246, 0.1);
-            border-radius: 12px;
-            padding: 15px 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-
-        .payment-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px var(--glow-blue);
-            border-color: var(--accent-blue);
-        }
-
-        .payment-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             font-weight: 800;
-            color: var(--text-primary);
+            background: linear-gradient(90deg, #f0f0f8, var(--linkedin-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent; 
         }
 
-        .payment-name {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            text-align: center; 
-        }
-        /* --- AKHIR CSS PAYMENT GRID --- */
-
-        
-        /* --- CSS MOCKUP LINKEDIN --- */
-        .mockup-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* 2 kolom di desktop */
-            gap: 20px;
-            text-align: left;
-        }
-
-        .mockup-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(59, 130, 246, 0.1);
-            border-radius: 12px;
-            overflow: hidden; 
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-        
-        .mockup-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px var(--glow-blue);
-            border-color: var(--accent-blue);
-        }
-
-        /* Card 1: Profil */
-        .mockup-profile-banner {
-            height: 80px;
-            background: linear-gradient(45deg, var(--accent-blue), #1e293b);
-        }
-        .mockup-profile-pic {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 4px solid var(--card-bg);
-            margin-top: -35px; 
-            margin-left: 20px;
-            background-color: var(--input-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .mockup-profile-pic .material-symbols-outlined {
-            font-size: 2.5rem;
-            color: var(--text-secondary);
-        }
-        .mockup-profile-info {
-            padding: 10px 20px 20px 20px;
-        }
-        .mockup-profile-info h3 {
+        .hero .subtitle {
             font-size: 1.2rem;
-            font-weight: 800;
-            color: var(--text-primary);
-        }
-        .mockup-profile-info p {
-            font-size: 0.9rem;
             color: var(--text-secondary);
-            line-height: 1.4;
-        }
-        .mockup-profile-info .location {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-top: 5px;
-        }
-        .mockup-profile-info .location .material-symbols-outlined {
-            font-size: 1rem; 
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 600;
         }
 
-        /* Card 2: Postingan */
-        .mockup-post-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 15px;
-        }
-        .mockup-post-pic {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--input-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .mockup-post-pic .material-symbols-outlined {
-            color: var(--text-secondary);
-        }
-        .mockup-post-author h4 {
-            font-size: 1rem;
+        .hero .highlight-blue {
+            color: var(--linkedin-blue);
             font-weight: 700;
-            color: var(--text-primary);
-        }
-        .mockup-post-author span {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-        .mockup-post-content {
-            padding: 0 15px 15px 15px;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        .mockup-post-social {
-            display: flex;
-            justify-content: space-around;
-            border-top: 1px solid var(--input-bg);
-            padding: 15px 10px;
-        }
-        .social-btn {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            color: var(--text-secondary);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        .social-btn .material-symbols-outlined {
-            font-size: 1.2rem;
-        }
-
-        /* Responsive untuk Mockup */
-        @media (max-width: 650px) {
-            .mockup-grid {
-                grid-template-columns: 1fr; /* 1 kolom di HP */
-            }
-        }
-        /* --- AKHIR CSS MOCKUP LINKEDIN --- */
-
-
-        /* --- CSS Efek Shimmer (KILAU IKUT TEKS) --- */
-        .shimmer-text {
-            color: var(--text-primary); 
-            font-weight: 800;
-            position: relative;
-            display: inline-block; 
-            z-index: 1; 
-            
-            background: linear-gradient(
-                90deg, 
-                var(--text-primary) 0%, 
-                var(--accent-blue) 20%, 
-                var(--text-primary) 40%, 
-                var(--text-primary) 100%
-            );
-            background-size: 200% 100%; 
-            
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            
-            animation: shimmer-text-effect 3s linear infinite;
         }
         
-        .promo-box strong.shimmer-text {
-            color: var(--accent-blue); 
-            font-weight: 800;
-            background: linear-gradient(
-                90deg, 
-                var(--accent-blue) 0%, 
-                var(--text-primary) 20%, 
-                var(--accent-blue) 40%, 
-                var(--accent-blue) 100%
-            );
-            background-size: 200% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer-text-effect 3s linear infinite;
+        .hero .hero-promo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--warning-border);
+            text-shadow: 0 0 8px rgba(255, 193, 7, 0.5);
+            margin-top: 20px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--linkedin-blue), var(--linkedin-blue-light));
+            color: #fff;
+            font-family: "Nunito Sans", sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 12px 35px;
+            border-radius: 50px;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 25px rgba(10, 102, 194, 0.4);
         }
 
-        @keyframes shimmer-text-effect {
+        .cta-button:hover {
+            transform: translateY(-2px) scale(1.02);
+            animation: pulseShadow 1.5s infinite ease-in-out;
+        }
+
+        @keyframes pulseShadow {
             0% {
-                background-position: -200% 0; 
+                box-shadow: 0 4px 25px rgba(10, 102, 194, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 40px rgba(10, 102, 194, 0.8);
             }
             100% {
-                background-position: 200% 0; 
+                box-shadow: 0 4px 25px rgba(10, 102, 194, 0.4);
             }
         }
-        /* --- AKHIR CSS SHIMMER --- */
         
-        
-        /* ### CSS Testimoni Grid ### */
-        .testimoni-grid {
-            width: 100%;
-            display: grid;
-            /* Grid responsif: 1-3 kolom */
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+        /* === KONTENER KACA === */
+        .glass-container {
+            background-color: rgba(26, 26, 46, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px;
+            margin-top: 40px;
         }
 
-        .testimoni-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(59, 130, 246, 0.1);
-            border-radius: 12px;
-            overflow: hidden; 
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        .content-section {
+            padding: 0;
+            text-align: left;
         }
-
-        .testimoni-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px var(--glow-blue);
-            border-color: var(--accent-blue);
-        }
-
-        .testimoni-card img {
-            display: block; 
-            width: 100%;    
-            height: auto;   
-        }
-        /* ### AKHIR CSS TESTIMONI ### */
         
-        /* ### CSS BARU NO 5: FOOTER ### */
-        footer {
-            width: 100%;
+        .content-section + .content-section {
+            padding-top: 0;
+            margin-top: 40px;
+        }
+
+        /* === Ukuran Judul Sedang === */
+        .content-section h2 {
+            font-size: 2rem;
             text-align: center;
-            padding: 25px 0;
+            margin-bottom: 30px;
+            color: #fff;
+            font-weight: 800;
+        }
+
+        /* Gaya untuk daftar poin (ul/li) */
+        .content-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+        }
+
+        .content-section li {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 35px;
+            font-weight: 600;
+        }
+        
+        /* Bullet untuk S&K (menggunakan Font Awesome) */
+        .syarat-ketentuan li .fa-check-circle {
+            position: absolute;
+            left: 0;
+            top: 4px; /* Disesuaikan sedikit */
+            color: var(--linkedin-blue);
+            font-size: 1.2rem;
+        }
+        
+        /* Bullet untuk Jadwal Sewa (menggunakan Font Awesome) */
+        .jadwal-sewa li .fa-minus {
+            position: absolute;
+            left: 0;
+            top: 4px; /* Disesuaikan sedikit */
+            color: var(--linkedin-blue);
+            font-size: 1.2rem;
+        }
+
+        /* Gaya untuk paragraf penjelasan (P) */
+        .content-section p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            font-weight: 600;
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 30px auto;
+        }
+        
+        .content-section p strong {
+            color: var(--linkedin-blue);
+            font-weight: 800;
+        }
+
+        /* --- Bagian Note --- */
+        .syarat-ketentuan p.note {
+            border-left: 5px solid var(--info-border);
+            padding: 20px;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-align: left;
+            max-width: 100%;
+            margin-bottom: 0;
+        }
+        .syarat-ketentuan p.note .fa-lightbulb {
+            color: var(--info-border);
+            margin-right: 8px;
+        }
+
+        .note strong {
+            color: var(--text-light);
+            font-weight: 700;
+        }
+        
+        /* === CSS MOCKUP LINKEDIN === */
+        .mockup-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+            margin-bottom: 0;
+            text-align: left;
+        }
+        
+        .linkedin-mockup {
+            background-color: var(--mockup-bg-light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 360px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-cover {
+            height: 90px;
+            background: linear-gradient(90deg, var(--linkedin-blue), var(--linkedin-blue-light));
+            position: relative;
+        }
+        .zen-logo-mini {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background-color: #fff;
+            color: var(--linkedin-blue);
+            font-size: 0.9rem;
+            font-weight: 800;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+        .profile-body {
+            padding: 15px 20px;
+            position: relative;
+        }
+        .profile-pic {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            border: 4px solid var(--mockup-bg-light);
+            margin-top: -55px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            color: #b0b0b0;
+        }
+        .profile-pic .fa-user-circle {
+            font-size: 3rem;
+            line-height: 1;
+            color: #b0b0b0;
+        }
+        .profile-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-top: 10px;
+        }
+        .profile-headline {
+            font-size: 0.95rem;
+            color: var(--mockup-text-secondary);
+            margin-bottom: 15px;
+        }
+        .profile-button {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--linkedin-blue), var(--linkedin-blue-light));
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .profile-button:hover {
+            box-shadow: 0 2px 10px rgba(10, 102, 194, 0.4);
+            transform: translateY(-1px);
+        }
+        
+        .post-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 20px;
+        }
+        .post-pic {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            color: #b0b0b0;
+        }
+        .post-pic .fa-user-circle {
+            font-size: 1.8rem;
+            line-height: 1;
+            color: #b0b0b0;
+        }
+        .post-author-name {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+        .post-author-headline {
+            font-size: 0.85rem;
+            color: var(--mockup-text-secondary);
+        }
+        .post-content {
+            padding: 0 20px 15px 20px;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+        .post-image-placeholder {
+            height: 180px;
+            background-color: #f0f2f5;
+            margin: 0 20px 15px 20px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--mockup-text-secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        .post-actions {
+            display: flex;
+            justify-content: space-around;
+            font-size: 0.95rem;
+            color: var(--mockup-text-secondary);
+            padding: 12px 20px;
+            border-top: 1px solid #eeeeee;
+        }
+        .post-actions span {
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
+        }
+        .post-actions span:hover {
+            background-color: #f5f5f5;
+            color: var(--linkedin-blue);
+        }
+        .post-actions span i {
+            margin-right: 5px;
+        }
+        
+        /* === CSS ANIMASI GLOW === */
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--linkedin-blue);
+            }
+            50% {
+                text-shadow: 0 0 10px #fff, 0 0 20px var(--linkedin-blue), 0 0 30px var(--linkedin-blue);
+            }
+            100% {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--linkedin-blue);
+            }
+        }
+
+        .highlight-glow {
+            font-weight: 800;
+            color: #fff;
+            animation: glow 2.5s infinite ease-in-out;
+        }
+        
+        /* === CSS KOTAK PERINGATAN === */
+        .warning-box {
+            background-color: var(--warning-bg);
+            border: 2px solid var(--warning-border);
+            color: var(--warning-border);
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-align: center;
+            max-width: 650px;
+            margin: 20px auto 0 auto;
+        }
+        .warning-box .fa-exclamation-triangle {
+            color: var(--warning-border);
+            margin-right: 10px;
+        }
+        
+        /* === CSS HIGHLIGHT REFERRAL === */
+        .referral-highlight {
+            background-color: var(--info-bg);
+            border-left: 5px solid var(--info-border);
+            color: var(--text-light);
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 30px auto;
+        }
+        
+        .referral-highlight strong {
+            color: var(--linkedin-blue-light);
+            font-weight: 800;
+        }
+        
+        /* === CSS TABEL REFERRAL === */
+        .referral-table {
+            margin: 0 auto 30px auto;
+            max-width: 650px;
+            text-align: left;
+        }
+        .referral-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .referral-table th, .referral-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .referral-table th {
+            background-color: rgba(10, 102, 194, 0.2);
+            color: var(--text-light);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .referral-table td {
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .referral-table tbody tr {
+            transition: background-color 0.3s ease;
+        }
+        .referral-table tbody tr:hover {
+            background-color: var(--info-bg);
+        }
+
+        .referral-table tr:last-child td {
+            border-bottom: none;
+        }
+        .referral-table td.price {
+            color: var(--linkedin-blue-light);
+            font-weight: 700;
+            text-align: right;
+        }
+        .referral-table td:first-child {
+            color: var(--text-light);
+        }
+        
+        /* === ANIMASI FADE-IN ON SCROLL === */
+        .fade-in-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
+        }
+        
+        .fade-in-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* === FOOTER === */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
             color: var(--text-secondary);
             font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 50px;
         }
-        /* ### AKHIR CSS FOOTER ### */
 
-        /* --- Responsive --- */
-        @media (max-width: 768px) {
-            header { padding: 15px 20px; }
-            h1.main-title { font-size: 2.5rem; }
-            p.subtitle { font-size: 1rem; }
-            h2.section-title { font-size: 1.6rem; }
-            .feature-grid { grid-template-columns: 1fr; }
-            .promo-box { font-size: 1rem; }
-            .form-toggle-container { flex-direction: column; gap: 15px; }
-            .mockup-grid { grid-template-columns: 1fr; }
+
+        /* --- Responsif untuk Mobile --- */
+        @media (max-width: 600px) {
+            .logo {
+                font-size: 1.5rem;
+                top: 15px;
+                left: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+            .hero .hero-promo {
+                font-size: 1.1rem;
+            }
+            
+            .cta-button {
+                font-size: 1.1rem;
+                padding: 10px 30px;
+            }
+            
+            .glass-container {
+                padding: 20px;
+            }
+            
+            .content-section h2 {
+                font-size: 1.8rem;
+            }
+            .mockup-container {
+                gap: 15px;
+            }
+            .linkedin-mockup {
+                max-width: 100%;
+            }
+            .profile-name { font-size: 1.15rem; }
+            .profile-headline { font-size: 0.85rem; }
+            .post-author-name { font-size: 1rem; }
+            .post-author-headline { font-size: 0.75rem; }
+            .post-content { font-size: 0.9rem; }
+            
+            .warning-box {
+                font-size: 1rem;
+                padding: 15px;
+            }
+            .referral-highlight {
+                font-size: 1rem;
+                padding: 15px;
+            }
+            
+            .referral-table th, .referral-table td {
+                padding: 10px;
+                font-size: 1rem;
+            }
+            
+            footer {
+                margin-top: 30px;
+                padding: 30px 15px;
+            }
         }
     </style>
 </head>
 <body>
+    
+    <div class="aurora" id="aurora-1"></div>
+    <div class="aurora" id="aurora-2"></div>
 
     <header>
-        <div class="logo">
-            <span class="material-symbols-outlined" style="font-size: 1.8rem; margin-right: 8px; font-weight: 500; color: var(--accent-blue);">
-                hub
-            </span>
-            Linkedin <span class="highlight-blue">Zen</span>
-        </div>
-        </header>
+        <div class="logo">Zen</div>
+    </header>
 
-    <main>
-        <div class="container">
+    <main class="container">
+
+        <section class="hero">
+            <h1>Passive Income Weekly</h1>
+            <p class="subtitle">
+                Dapatkan pasif income $12 per minggu dengan menyewakan akun linkedin kalian di 
+                <span class="highlight-blue">Agent Zen</span>
+            </p>
+            <p class="hero-promo">
+                Terima Dp $1 setelah bule log in ( Kuota Terbatas )
+            </p>
             
-            <section class="hero-section">
-                <div class="glow-effect"></div>
+            <a href="https://wa.me/6289513304878" class="cta-button" target="_blank">
+                Hubungi Admin
+            </a>
+        </section>
 
-                <h1 class="main-title">Passive Income<br>Weekly</h1>
-                <p class="subtitle">
-                    Sewakan akunmu di agent Zen dan Peroleh Passive Income <span class="shimmer-text">$10 Weekly</span>
-                </p>
+        <div class="glass-container">
 
-                <h2 class="section-title js-scroll-fade-in" style="font-size: 1.8rem; margin-bottom: 15px; margin-top: 40px;">
-                    Apa syarat nya?
-                </h2>
-                <ul class="syarat-list js-scroll-fade-in" style="margin-bottom: 30px;">
-                    <li>1. Pembuatan minimal mei 2024</li>
-                    <li>2. Koneksi Minimal 20</li>
+            <section class="content-section syarat-ketentuan fade-in-on-scroll">
+                <h2>Syarat & Ketentuan</h2>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Pembuatan akun Oktober 2024</li>
+                    <li><i class="fas fa-check-circle"></i> Koneksi minimal 30</li>
                 </ul>
-                
-                <h2 class="section-title js-scroll-fade-in" style="font-size: 1.8rem; margin-bottom: 15px;">
-                    Kapan Mulai Sewa?
-                </h2>
-                <p class="section-desc js-scroll-fade-in" style="font-size: 1.1rem; margin-bottom: 30px; max-width: 550px;">
-                    Jadwal sewa dimulai setiap Kamis Sd Selasa Jam 8 malam sampai Jam 5 Pagi.
+                <p class="note">
+                    <i class="fas fa-lightbulb"></i> <strong>Note:</strong> Kalau koneksi belum 30 silahkan hubungi admin untuk dibantu GB koneksi
                 </p>
-
-                <h2 class="section-title js-scroll-fade-in" style="font-size: 1.8rem; margin-bottom: 15px;">
-                    Kapan Dibayarnya?
-                </h2>
-                <p class="section-desc js-scroll-fade-in" style="font-size: 1.1rem; margin-bottom: 0; max-width: 550px;">
-                    Kamu akan mendapatkan bayaran setiap Kamis ( Jika tidak delay dari perusahaan )
-                </p>
-                
-                <div class="feature-grid js-scroll-fade-in" style="margin-top: 40px;"> 
-                    <div class="feature-item">
-                        <span class="material-symbols-outlined check-icon">done</span> 100% Dibayar sesuai rules
-                    </div>
-                    <div class="feature-item">
-                        <span class="material-symbols-outlined check-icon">wallet</span> Bisa semua jenis Bank & E-Wallet
-                    </div>
-                    <div class="feature-item">
-                        <span class="material-symbols-outlined check-icon">paid</span> DP $1 Setelah Agent Log in
-                    </div>
-                    <div class="feature-item">
-                        <span class="material-symbols-outlined check-icon">support_agent</span> Admin Responsif
-                    </div>
-                </div>
             </section>
-
-            <section class="info-section js-scroll-fade-in"> 
-                <h2 class="section-title">Buat apa akunya?</h2>
-                <p class="section-desc">
-                    Akun digunakan untuk Promosi Produk digital dan Menaikan Engagement Di Negara Agent
-                </p>
-                
-                <div class="security-list">
-                    <div class="security-item">
-                        <span class="material-symbols-outlined shield-icon">security</span> Akun aman Tidak Take data utama
-                    </div>
-                    <div class="security-item">
-                        <span class="material-symbols-outlined shield-icon">public</span> Akun disesuaikan Profilnya ke negara Agent
-                    </div>
-                    <div class="security-item">
-                        <span class="material-symbols-outlined shield-icon">lock</span> Akun tidak akan digunakan untuk tindak kriminal
-                    </div>
-                </div>
+            
+            <section class="content-section jadwal-sewa fade-in-on-scroll">
+                <h2>Jadwal Sewa</h2>
+                <ul>
+                    <li><i class="fas fa-minus"></i> Setor akun akan dimulai setiap Minggu - Jumat Jam 21:00 - 05:00.</li>
+                    <li><i class="fas fa-minus"></i> Pembayaran akan dilakukan setiap Sabtu ( Jika tidak delay ).</li>
+                </ul>
             </section>
-
-            <section class="info-section js-scroll-fade-in">
-                <h2 class="section-title">Contoh Penggunaan Akun</h2>
+            
+            <section class="content-section fade-in-on-scroll">
+                <h2>Akunya Untuk Apa?</h2>
+                <p>Akun digunakan untuk promosi digital dan Push Engagement di region US</p>
                 
-                <div class="mockup-grid">
+                <div class="mockup-container">
                     
-                    <div class="mockup-card">
-                        <div class="mockup-profile-banner"></div>
-                        <div class="mockup-profile-pic">
-                            <span class="material-symbols-outlined">person</span>
+                    <div class="linkedin-mockup profile-mockup">
+                        <div class="profile-cover">
+                            <span class="zen-logo-mini">ZEN</span>
                         </div>
-                        <div class="mockup-profile-info">
-                            <h3>Alex Jordan</h3>
-                            <p>Digital Health Advocate | Promoting Wellness Tech</p>
-                            <div class="location">
-                                <span class="material-symbols-outlined">location_on</span>
-                                Berlin, Germany
-                            </div>
+                        <div class="profile-body">
+                            <div class="profile-pic"><i class="fas fa-user-circle"></i></div>
+                            <div class="profile-name">Sarah Connor</div>
+                            <div class="profile-headline">Web3 Enthusiast | Digital Marketing Strategist (US Region)</div>
+                            <a href="#" class="profile-button" onclick="return false;">Connect</a>
                         </div>
                     </div>
                     
-                    <div class="mockup-card">
-                        <div class="mockup-post-header">
-                            <div class="mockup-post-pic">
-                                <span class="material-symbols-outlined">person</span>
-                            </div>
-                            <div class="mockup-post-author">
-                                <h4>Alex Jordan</h4>
-                                <span>Promoted</span>
+                    <div class="linkedin-mockup post-mockup">
+                        <div class="post-header">
+                            <div class="post-pic"><i class="fas fa-user-circle"></i></div>
+                            <div class="post-author-info">
+                                <div class="post-author-name">Sarah Connor</div>
+                                <div class="post-author-headline">1st • 4h • <i class="fas fa-globe-americas"></i></div>
                             </div>
                         </div>
-                        <div class="mockup-post-content">
-                            <p>Excited to share this new digital wellness app! It's changing how we track our health. #DigitalHealth #Wellness #Tech</p>
+                        <div class="post-content">
+                            Excited about the future of DeFi! 🚀 We're seeing huge growth in the US market. Our new platform is set to revolutionize digital assets. Join the movement! #Web3 #Crypto #DeFi #USMarketing
                         </div>
-                        <div class="mockup-post-social">
-                            <span class="social-btn">
-                                <span class="material-symbols-outlined">thumb_up</span> Like
-                            </span>
-                            <span class="social-btn">
-                                <span class="material-symbols-outlined">chat_bubble</span> Comment
-                            </span>
-                            <span class="social-btn">
-                                <span class="material-symbols-outlined">repeat</span> Repost
-                            </span>
+                        <div class="post-image-placeholder">
+                            <span>[Gambar Promosi Produk/Layanan di Sini]</span>
+                        </div>
+                        <div class="post-actions">
+                            <span><i class="fas fa-thumbs-up"></i> Like</span>
+                            <span><i class="fas fa-comment-dots"></i> Comment</span>
+                            <span><i class="fas fa-share-square"></i> Share</span>
                         </div>
                     </div>
-
-                </div>
-            </section>
-
-            <section class="info-section js-scroll-fade-in"> 
-                <h2 class="section-title">Member Get Member</h2>
-                <div class="promo-box">
-                    Undang Teman untuk menyewakan akun linkedinya kesini, per undangan yang berhasil sewa maka kamu akan mendapat <strong class="shimmer-text">$2</strong> terlepas akun temanmu Restric Atau Tidak nya
-                </div>
-            </section>
-
-            <section class="info-section js-scroll-fade-in">
-                <h2 class="section-title">Testimoni</h2>
-                <div class="testimoni-grid">
-                    <div class="testimoni-card">
-                        <img src="Testimoni 1.png" alt="Bukti pembayaran testimoni 1" loading="lazy">
-                    </div>
-                    <div class="testimoni-card">
-                        <img src="Testimoni 2.png" alt="Bukti pembayaran testimoni 2" loading="lazy">
-                    </div>
-                    <div class="testimoni-card">
-                        <img src="Testimoni 3.png" alt="Bukti pembayaran testimoni 3" loading="lazy">
-                    </div>
-                    <div class="testimoni-card">
-                        <img src="Testimoni 4.png" alt="Bukti pembayaran testimoni 4" loading="lazy">
-                    </div>
-                    <div class="testimoni-card">
-                        <img src="Testimoni 5.png" alt="Bukti pembayaran testimoni 5" loading="lazy">
-                    </div>
+                    
                 </div>
             </section>
             
-            <section class="info-section js-scroll-fade-in"> 
-                <h2 class="section-title">Metode Pembayaran</h2>
-                <div class="payment-grid">
-                    <div class="payment-card" aria-label="Metode Pembayaran DANA">
-                        <div class="payment-icon" style="background-color: #3b82f6;">D</div>
-                        <span class="payment-name">Dana</span>
-                    </div>
-                    <div class="payment-card" aria-label="Metode Pembayaran OVO">
-                        <div class="payment-icon" style="background-color: #6d28d9;">O</div>
-                        <span class="payment-name">Ovo</span>
-                    </div>
-                    <div class="payment-card" aria-label="Metode Pembayaran Gopay">
-                        <div class="payment-icon" style="background-color: #22c55e;">G</div>
-                        <span class="payment-name">Gopay</span>
-                    </div>
-                    <div class="payment-card" aria-label="Metode Pembayaran ShopeePay">
-                        <div class="payment-icon" style="background-color: #f97316;">S</div>
-                        <span class="payment-name">ShopeePay</span>
-                    </div>
-                    <div class="payment-card" aria-label="Metode Pembayaran Seabank">
-                        <div class="payment-icon" style="background-color: #f59e0b;">S</div>
-                        <span class="payment-name">Seabank</span>
-                    </div>
-                    <div class="payment-card" aria-label="Metode Pembayaran BRI">
-                        <div class="payment-icon" style="background-color: #2563eb;">B</div>
-                        <span class="payment-name">BRI</span>
-                    </div>
-                    <div class="payment-card" aria-label="Metode Pembayaran Mandiri">
-                        <div class="payment-icon" style="background-color: #eab308;">M</div>
-                        <span class="payment-name">Mandiri</span>
-                    </div>
-                    <div class="payment-card" aria-label="Metode Pembayaran BCA Blu">
-                        <div class="payment-icon" style="background-color: #0ea5e9;">B</div>
-                        <span class="payment-name">BCA Blu</span>
-                    </div>
-                    <div class="payment-card" aria-label="Metode Pembayaran Jago">
-                        <div class="payment-icon" style="background-color: #facc15; color: #1e293b;">J</div>
-                        <span class="payment-name">Jago</span>
-                    </div>
-                    <div class="payment-card" aria-label="Metode Pembayaran BNI">
-                        <div class="payment-icon" style="background-color: #f59e0b;">B</div>
-                        <span class="payment-name">BNI</span>
-                    </div>
-                    <div class="payment-card" aria-label="Metode Pembayaran Permata">
-                        <div class="payment-icon" style="background-color: #ef4444;">P</div>
-                        <span class="payment-name">Permata</span>
-                    </div>
-                    <div class="payment-card" aria-label="Metode Pembayaran TMRW">
-                        <div class="payment-icon" style="background-color: #fde047; color: #1e293b;">T</div>
-                        <span class="payment-name">TMRW</span>
-                    </div>
-                </div>
+            <section class="content-section fade-in-on-scroll">
+                <h2>Gimana kalau Akunya terkena Restrict pas masa sewa?</h2>
+                <p>Khusus New Acc kalau terkena restrict tetap di bayar <span class="highlight-glow">$5</span>, dan untuk old acc yang terkena restrict di tengah sewa tidak akan mendapat payment</p>
             </section>
             
-            </div>
+            <section class="content-section fade-in-on-scroll">
+                <h2>Cara Mulai Sewanya Bagaimana?</h2>
+                <p>Di grup setiap jam 9 malam akan ada Form Setor Akun yang di kirim oleh admin, kalian cukup isi itu dan Menunggu agent bulenya balas dan succes log in. Jika sudah succes kalian wajib kirim buktinya ke WhatsApp admin Zen</p>
+                
+                <div class="warning-box">
+                    <i class="fas fa-exclamation-triangle"></i> <strong>Peringatan:</strong> Agent tidak akan meminta Gmail / Data utama kalian, jika agent memintanya harap lapor ke admin segera
+                </div>
+            </section>
+
+            <section class="content-section fade-in-on-scroll">
+                <h2>Referral Program</h2>
+                
+                <div class="referral-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Jumlah Invite</th>
+                                <th>Bonus (IDR)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1 Invite</td>
+                                <td class="price">32.000</td>
+                            </tr>
+                            <tr>
+                                <td>2 Invite</td>
+                                <td class="price">64.000</td>
+                            </tr>
+                            <tr>
+                                <td>3 Invite</td>
+                                <td class="price">96.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="referral-highlight">
+                    <strong>Note:</strong> Jika kalian undang Lebih dari 10 orang di week yang sama rate naik menjadi <strong>48.000 per Invite</strong>.
+                </div>
+                
+                <p>Hubungi admin jika kalian ingin ikut gabung Programnya!</p>
+            </section>
+
+        </div> 
     </main>
-
+    
     <footer>
-        <p>© 2025 Linkedin Zen. All Rights Reserved.</p>
+        © 2025 Agent Zen. All Rights Reserved.
     </footer>
+
     <script>
-        // 1. Logika Animasi Scroll
         document.addEventListener('DOMContentLoaded', () => {
-            const sectionsToAnimate = document.querySelectorAll('.js-scroll-fade-in');
-
-            if (sectionsToAnimate.length > 0) {
-                const observerOptions = {
-                    root: null, // default: viewport
-                    rootMargin: '0px',
-                    threshold: 0.1 // 10% dari elemen harus terlihat
-                };
-
-                const observerCallback = (entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                };
-
-                const observer = new IntersectionObserver(observerCallback, observerOptions);
-                sectionsToAnimate.forEach(section => {
-                    observer.observe(section);
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
                 });
-            }
+            }, {
+                threshold: 0.1
+            });
+
+            const elementsToAnimate = document.querySelectorAll('.fade-in-on-scroll');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
         });
-        
     </script>
+
 </body>
-  </html>
+</html>
